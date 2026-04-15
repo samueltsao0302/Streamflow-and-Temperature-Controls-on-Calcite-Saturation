@@ -2,7 +2,7 @@
 
 This repository contains code to reproduce the analysis and figures from:
 
-**Tsao et al. (2026)** – *Streamflow and Temperature Controls on Calcite Saturation in River Systems*.
+**Tsao et al. (2026)** – *Streamflow and Temperature Controls on Calcite Saturation in River Systems*. (manuscript under review)
 
 
 ## 📊 Data Sources
