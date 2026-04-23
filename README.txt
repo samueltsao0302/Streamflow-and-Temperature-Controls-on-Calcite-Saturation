@@ -24,25 +24,32 @@ Due to file size limitations, raw and intermediate datasets are not included in 
 The analysis pipeline consists of three main stages:
 
 ### 1. Data preprocessing (bash)
-- Extract the pixel value from daily temperature files downloaded 
 extract_air_temp_livneh.sh 
+- Extract the pixel value from daily air temperature nc files downloaded
 
-livneh-> airtemp_raw
 
-reshape_air_temp.sh
-airtemp_raw airtemp_all.csv
+merge_reshape_air_temp.sh
+- merge the extracted daily air temperature values
+
+cut_air_temp_file.sh
+- cut only the sites which will be needed in our analysis
+
+stream_temp_discharge_awk.sh
+- merge the daily stream temperature and discharge data for later analysis.
 
 
 ### 2. WRTDS modeling (R)
 - Estimate daily alkalinity concentration and flux using WRTDS. 
-
-
+wrtds.R
+run_wrtds.sh (this is the code that execute the R code)
 
 
 ### 3. Calcite saturation (Ω) calculation and main analysis (Python)
-
-
-- Compute Ω using water chemistry outputs 
+- Compute daily Ω using water chemistry outputs 
+calculate_daily_omega.py
+run_calculate_daily_omega.sh (this is the code that execute the python code)
 
 - Aggregate site-level results of percentage of time and alkalinity flux when Ω >10
-
+omega_file_io.ipynb  (this notebook takes care of the file IO, reads all the raw files)
+omega_analysis.ipynb  (this notebook conduct tha main analysis and produce figures in the manuscript)
+ 
